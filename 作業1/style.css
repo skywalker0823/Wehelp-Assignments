@@ -7,7 +7,6 @@ body,ul,li,p
     font-family: Arial;
 }
 img{
-    max-width: 100%;
     display: block;
 }
 .title{
@@ -52,9 +51,8 @@ a{
     justify-content: center;
 }
 .box{
-    width: 280px;
+    width: 285px;
     margin: 5px;
-    
 }
 .flex div{
     display: flex;
@@ -62,7 +60,7 @@ a{
 }
 .pic_text{
     text-align: center;
-
+    padding: 3px;
 }
 @media (min-width:600px) and (max-width:1200px){/*600~1200px*/
     .flex{max-width: 90%;}
