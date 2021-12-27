@@ -70,6 +70,6 @@ a{
     .flex{max-width: 90%;}
     .box{width: 100%;}
     .menu{display: none;}
-    .title{font-size: 30px;}
+    .title{font-size: 32px;}
     .burger{display: flex;}
 }
