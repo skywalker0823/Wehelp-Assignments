@@ -26,12 +26,11 @@ a{
 .header{
     display: flex;
     justify-content:space-between;
-    padding: 10px;
+    padding: 7px;
     align-items: center;
     flex-wrap: wrap;
 }
-.burger{
-    width: 25px;
+#burger{
     display: none;
 }
 .menu{
@@ -68,7 +67,10 @@ a{
 @media screen and (max-width:600px) {/*less than 600*/
     .flex{max-width: 90%;}
     .box{width: 100%;}
-    .menu{display: none;}
     .title{font-size: 32px;}
-    .burger{display: flex;}
+    .hide{display: none;}
+    #burger{display: block;}
+    #menu_outer{width:100% ;margin-top: 5px;}
+    .menu{justify-content: space-around;}
+    .menu a{text-align: center;margin-left: 0px;}
 }

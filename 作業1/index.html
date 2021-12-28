@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="wh_style.css"/>
+
     <title>My Website</title>
 </head>
 <body>
     <header class="header">
         <a href="#">My website</a>
-        <nav>
-            <img class="burger" src="./imgs/2561466_menu_icon.png">
+    <button type="button" id="burger" onclick="burger_list()">
+            <img style="width: 25px;" src="./imgs/2561466_menu_icon.png" ></button>
+        <div id="menu_outer" class="hide">
             <ul class="menu">
                 <li><a href="#">item1</a></li>
                 <li><a href="#">item2</a></li>
                 <li><a href="#">item3</a></li>
                 <li><a href="#">item4</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
     <h1 class="title">Welcome to MyHome</h1>
     <section class="sec1">
@@ -32,6 +34,6 @@
         <div class="box"><img src="./imgs/Stonks.png"/><p  class="pic_text">Enter description</p></div>
         </div>
     </section>
-
+    <script type="text/javascript" src="wh_script.js"></script>
 </body>
 </html>
