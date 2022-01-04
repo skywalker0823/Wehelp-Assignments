@@ -48,30 +48,25 @@ avg({
 
 
 //Task 3
-//最大兩數之相乘
+//兩數之相乘最大值
 function maxProduct(nums){
-    let neo=nums[0];
-    for(number of nums){
-        if(number>neo){
-            neo=number
-        }
-    }
-    let index=nums.indexOf(neo)
-    nums.splice(index,index+1)
-    let neo2=nums[0]
-    for(number2 of nums){
-        if(number2>neo2){
-            neo2=number2
-        }
-    }
-    console.log(neo*neo2)
+    let init=nums[0]*nums[1]
+    for(num=0;num<nums.length-1;num++){
+        for(num2=num+1;num2<nums.length;num2++){
+            if(nums[num]*nums[num2]>init){
+                init=nums[num]*nums[num2]
 
+            }
+        }
+    
     }
-    maxProduct([5, 20, 2, 6]) // 得到 120
-    maxProduct([10, -20, 0, 3]) // 得到 30
-    maxProduct([-1, 2]) // 得到 -2
-    maxProduct([-1, 0, 2]) // 得到 0
-    maxProduct([-1,-2,0]) //得到 0
+    console.log(init)
+}
+maxProduct([5, 20, 2, 6]) // 得到 120
+maxProduct([10, -20, 0, 3]) // 得到 30
+maxProduct([-1, 2]) // 得到 -2
+maxProduct([-1, 0, 2]) // 得到 0
+maxProduct([-1,-2,0]) //得到 2
 
 
 //Task 4
