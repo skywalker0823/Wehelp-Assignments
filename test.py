@@ -1,5 +1,5 @@
 # WeHelp Bootcamp
-# Assignment - Week 2
+# Assignment - Week 2 - 更多解法
 
 #Task 1
 #迴圈計算min~max總合
@@ -41,14 +41,18 @@ avg({
 
 
 # #Task 3
-# #找到最大結果的相乘組合的數
+# #最大兩數之相乘 
 def maxProduct(nums):
-    init=nums[0]*nums[1]
-    for neo in range(len(nums)-1):
-        for neo2 in range(neo+1,len(nums)):
-            if nums[neo]*nums[neo2]>init:
-                init=nums[neo]*nums[neo2]
-    print(init)
+    neo=nums[0]
+    for number in nums:
+        if number>neo:
+            neo=number
+    nums.remove(neo)
+    neo2=nums[0]
+    for number2 in nums:
+        if number2>neo2:
+            neo2=number2
+    print(neo*neo2)
 # 請用你的程式補完這個函式的區塊
 maxProduct([5, 20, 2, 6]) # 得到 120
 maxProduct([10, -20, 0, 3]) # 得到 30
