@@ -40,7 +40,7 @@ avg({
 })
 
 
-# #Task 3
+# #Task 3 時間複雜度:O(n*n)
 # #找到最大結果的相乘組合的數
 def maxProduct(nums):
     init=nums[0]*nums[1]
@@ -68,7 +68,7 @@ result=twoSum([2, 11, 7, 15], 9)
 print(result) # show [0, 2] because nums[0]+nums[2] is 9
 
 
-#Optional Task 5
+#Optional Task 5 時間複雜度:O(n)
 # 找最長的0 並計算長度
 def maxZeros(nums):
     record=0
