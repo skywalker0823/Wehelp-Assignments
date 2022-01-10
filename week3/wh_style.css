@@ -13,6 +13,7 @@ img{
 
     object-fit:cover;
     height: 100%;
+    overflow: auto;
 }
 .title{
     display: flex;
@@ -58,6 +59,7 @@ a{
     width: 285px;
     margin: 5px;
     margin-bottom: 30px;
+    max-height: 255px;
 }
 .flex div{
     display: flex;
