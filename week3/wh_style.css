@@ -57,8 +57,7 @@ a{
     object-fit:cover;
     width: 285px;
     margin: 5px;
-    margin-bottom: 20px;
-    max-height: 250px;
+    margin-bottom: 30px;
 }
 .flex div{
     display: flex;
@@ -66,7 +65,8 @@ a{
 }
 .pic_text{
     text-align: center;
-    padding: 3px;
+
+    padding: 10px;
     background-color: antiquewhite;
 }
 #more{
