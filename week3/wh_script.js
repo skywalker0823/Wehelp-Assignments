@@ -20,12 +20,12 @@ function site_in(){
         let pic_in=document.getElementById("pic_in");//圖片從這開始放
         
         let new_space=document.createElement("div");//產生新的div
-        new_space.className="box";//調整classname
-        new_space.id="box"+counter;
-        
+        new_space.className="box";//加上classname
+        new_space.id="box"+counter;//為每個div加上個別id
         let pic_here=document.createElement("img");
         let site_name_space=document.createElement("p");
-        pic_here.src=site_pic;
+
+        pic_here.src=site_pic;//把圖片網址嵌進去src
         site_name_space.className="pic_text";
         let site_name=document.createTextNode(site.stitle);//地名
         
@@ -36,7 +36,7 @@ function site_in(){
         if(counter>9){
             document.getElementById(new_space.id).style.display="none"
         };
-        
+
     };
   });
 };
