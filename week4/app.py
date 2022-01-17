@@ -16,7 +16,7 @@ app.secret_key="1234"
 def login():
     print("有客人來囉")
     if session.get("user"):
-        return redirect("/member/")
+        return redirect("/member")#已登入者自動導向
     else:
         return rt("login.html")
 
