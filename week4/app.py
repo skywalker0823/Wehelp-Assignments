@@ -25,12 +25,12 @@ def signin():
     acc=request.form["account"]
     pss=request.form["password"]
     if acc=="" or pss=="":
-        return redirect("/error?message=帳號或密碼不能為空")
+        return redirect("/error/?message=帳號或密碼不能為空")
     elif acc=="test" and pss=="test":#驗證成功 紀錄session
         session['user']=acc
         return redirect("/member")
     else:
-        return redirect("/error?message=帳號或密碼錯誤")
+        return redirect("/error/?message=帳號或密碼錯誤")
     
     
 
@@ -43,7 +43,7 @@ def member():
         print("未知使用者嘗試存取主頁")
         return redirect("/")
 
-@app.route("/error")#錯誤頁面->錯誤方式產生訊息變化
+@app.route("/error/")#錯誤頁面->錯誤方式產生訊息變化
 def error():
     message=request.args.get("message")
     return rt("error.html",message=message)
