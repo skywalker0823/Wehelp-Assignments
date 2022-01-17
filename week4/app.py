@@ -26,7 +26,7 @@ def signin():
     pss=request.form["password"]
     if acc=="" or pss=="":
         return redirect("/error?message=帳號或密碼不能為空")
-    elif acc=="test" and pss=="test":
+    elif acc=="test" and pss=="test":#驗證成功 紀錄session
         session['user']=acc
         return redirect("/member")
     else:
