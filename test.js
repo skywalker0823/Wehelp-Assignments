@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // function getData(){//這裡在主流程開始的時候 便會立即執行
 //     return new Promise(function(resolve,reject){
 //         let req=new XMLHttpRequest();
@@ -129,7 +128,6 @@
 
 say=()=>
 say()
-=======
 function getData(){//這裡在主流程開始的時候 便會立即執行
     return new Promise(function(resolve,reject){
         let req=new XMLHttpRequest();
@@ -151,4 +149,3 @@ datapromise.then(function(result){//這裡的then會等待上方的結果都處�
 },function(error){//失敗時執行
     console.log(error);
 })
->>>>>>> 272b694dc3296350c66609c6f2f63790c4ba3072
