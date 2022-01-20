@@ -11,6 +11,7 @@ function getData(){//這裡在主流程開始的時候 便會立即執行
         req.send();
     })
 };
+
 //這裡是主流程
 let datapromise=getData();
 datapromise.then(function(result){//這裡的then會等待上方的結果都處理完之後，接續執行
