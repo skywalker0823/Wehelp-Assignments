@@ -31,8 +31,6 @@ def signin():
     else:
         return redirect("/error/?message=帳號或密碼錯誤")
     
-    
-
 @app.route("/member")#主頁
 def member():
     if session.get("user"):
