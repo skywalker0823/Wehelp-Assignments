@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="wh_style.css"/>
+
+    <title>My Website</title>
+</head>
+<body onload="site_in()">
+    <header class="header">
+        <a href="#">My website</a>
+    <button type="button" id="burger" onclick="burger_list()">
+            <img class="burg_img" style="width: 25px;" src="./imgs/2561466_menu_icon.png" ></button>
+        <div id="menu_outer" class="hide">
+            <ul class="menu">
+                <li><a href="#">item1</a></li>
+                <li><a href="#">item2</a></li>
+                <li><a href="#">item3</a></li>
+                <li><a href="#">item4</a></li>
+            </ul>
+        </div>
+    </header>
+    <h1 class="title">Welcome to MyHome</h1>
+    <section class="sec1">
+        <div class="flex" id="pic_in">
+
+        <!--div class="box"><img src=""/><p class="pic_text">Enter description</p></div>-->
+        </div>
+    </section>
+    <div style="display: flex;justify-content: center;">
+    <button id="more" onclick="more()">more</button>
+    </div>
+    <script type="text/javascript" src="wh_script.js"></script>
+</body>
+</html>
