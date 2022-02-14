@@ -15,7 +15,6 @@ check_name=()=>{
 
 rename=()=>{
     let new_name=document.getElementById("i_am").value;
-    console.log(new_name)
     let rename_result=document.getElementById("rename_result");
     let name_message=document.getElementById("name_message")
     const url='/api/member';

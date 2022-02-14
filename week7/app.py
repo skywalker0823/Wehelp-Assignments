@@ -121,23 +121,19 @@ def members():
 
 @app.route("/api/member" , methods=["POST"])
 def change_name():
-    data=request.get_json()#資料
-    username=session["username"][0]#帳號
-    print("幹三小",data["name"],username)
+    data=request.get_json()
+    username=session["username"][0]
     with connection.cursor() as cursor:
         changed=cursor.execute("""
                 UPDATE member 
                 SET name=%s
                 WHERE username=%s
         """,(data["name"],username))
-        print("change",changed)
         result={"newname":data["name"]}
         session["username"][1]=data["name"]
-        print("更新後",session["username"])
+        session["username"]=session["username"]
+        print("修改完成",changed,"筆資料更新")
         return jsonify(result)
-
-# message=session['username'][1]
-
 
 @app.route("/error/")
 def error():
