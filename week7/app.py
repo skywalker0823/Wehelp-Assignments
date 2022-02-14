@@ -72,6 +72,9 @@ def signin():
 @app.route("/member")
 def member():
     if session.get("username"):
+
+        #get一次就取一次資料庫? 真假
+
         return rt("member.html",message=session['username'][1]+"恭喜您~成功登入系統:)")
     else:
         return redirect("/")
@@ -122,14 +125,19 @@ def change_name():
     username=session["username"][0]#帳號
     print("幹三小",data["name"],username)
     with connection.cursor() as cursor:
-        change=cursor.execute("""
+        changed=cursor.execute("""
                 UPDATE member 
                 SET name=%s
                 WHERE username=%s
         """,(data["name"],username))
-        print(change)
+        print("change",changed)
         result={"newname":data["name"]}
+        session["username"][1]=data["name"]
+        print("更新後",session["username"])
         return jsonify(result)
+
+# message=session['username'][1]
+
 
 @app.route("/error/")
 def error():
