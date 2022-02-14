@@ -12,8 +12,6 @@ from dbutils.pooled_db import PooledDB
 from dotenv import load_dotenv
 from flask import jsonify
 
-from werkzeug.exceptions import BadRequestKeyError
-
 load_dotenv()
 
 POOL = PooledDB(
@@ -72,9 +70,6 @@ def signin():
 @app.route("/member")
 def member():
     if session.get("username"):
-
-        #get一次就取一次資料庫? 真假
-
         return rt("member.html",message=session['username'][1]+"恭喜您~成功登入系統:)")
     else:
         return redirect("/")
@@ -102,15 +97,14 @@ def register():
                 print("註冊完成 新增: ",result,"筆資料")
                 return redirect("/")
 
-#接http://127.0.0.1:3000/api/members?username=XDD
 @app.route("/api/members" , methods=["GET"])
 def members():
-    username=request.args.get("username")#抓到string
+    username=request.args.get("username")
     with connection.cursor() as cursor:
         got=cursor.execute("""SELECT * FROM member WHERE username=%s""",(username,))
         result=cursor.fetchone()
         connection.commit()
-        if got!=0:#有此帳號 抓出id name以及username
+        if got!=0:
             id=result["id"]
             name=result["name"]
             user_name=result["username"]
@@ -121,19 +115,22 @@ def members():
 
 @app.route("/api/member" , methods=["POST"])
 def change_name():
-    data=request.get_json()
-    username=session["username"][0]
-    with connection.cursor() as cursor:
-        changed=cursor.execute("""
-                UPDATE member 
-                SET name=%s
-                WHERE username=%s
-        """,(data["name"],username))
-        result={"newname":data["name"]}
-        session["username"][1]=data["name"]
-        session["username"]=session["username"]
-        print("修改完成",changed,"筆資料更新")
-        return jsonify(result)
+    if session.get("username"):
+        data=request.get_json()
+        username=session["username"][0]
+        with connection.cursor() as cursor:
+            changed=cursor.execute("""
+                    UPDATE member 
+                    SET name=%s
+                    WHERE username=%s
+            """,(data["name"],username))
+            connection.commit()
+            result={"ok":"true"}
+            session["username"][1]=data["name"]
+            session["username"]=session["username"]
+            return jsonify(result)
+    else:
+        return jsonify({"error":"true"})
 
 @app.route("/error/")
 def error():
