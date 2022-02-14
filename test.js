@@ -178,6 +178,11 @@
 //     console.log(i)
 // }
 
-const [...y] = [1, 2, 3]
+// const [...y] = [1, 2, 3]
 
-console.log(y) //[2,3]
+// console.log(y) //[2,3]
+let a="哈哈"
+
+function test(){console.log(this)}
+
+a.test();

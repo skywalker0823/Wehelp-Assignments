@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Member</title>
+</head>
+<body>
+    <section class="login">
+        <div class="welcome">
+            <p>歡迎光臨 這是會員頁</p>
+        </div>
+        <div class="signin">
+            <p id="name_message">{{message}}</p>
+            <a href="signout">登出</a>
+        </div>
+        <div class="signin">
+            <p>查詢會員姓名</p>
+            <input type="text" id="who_is"><button onclick="check_name()" type="submit">查詢</button>
+            <p id="you_are"></p>
+        </div>
+        <div class="signin">
+            <p>更新我的姓名</p>
+            <input type="text" id="i_am">
+            <button onclick="rename()">更新</button>
+            <p id="rename_result"></p>
+        </div>
+    </section>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
