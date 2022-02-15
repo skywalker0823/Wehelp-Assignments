@@ -4,12 +4,15 @@ check_name=()=>{
     fetch(
         "/api/members?username="+who_is
     ).then((response)=>{
-        return response.json()
+            return response.json();
     }).then((json_data)=>{
+        if(json_data.data==null){
+            throw new Error()
+        }
         let name=json_data.data.name;
         you_are.innerHTML=name+"("+who_is+")"
     }).catch((error)=>{
-        you_are.innerHTML="查無此人"
+        you_are.innerHTML="查無此號"
     })
 }
 
