@@ -1,8 +1,9 @@
 check_name=()=>{
     let who_is=document.getElementById("who_is").value;
     let you_are=document.getElementById("you_are");
-    fetch("/api/members?username="+who_is)
-    .then((response)=>{
+    fetch(
+        "/api/members?username="+who_is
+    ).then((response)=>{
         return response.json()
     }).then((json_data)=>{
         let name=json_data.data.name;
@@ -15,7 +16,7 @@ check_name=()=>{
 rename=()=>{
     let new_name=document.getElementById("i_am");
     let rename_result=document.getElementById("rename_result");
-    let name_message=document.getElementById("name_message")
+    let name_message=document.getElementById("name_message");
     const url='/api/member';
     fetch(url,{
         method: 'POST',
@@ -30,6 +31,6 @@ rename=()=>{
         name_message.innerHTML=new_name.value+" 恭喜您~成功登入系統:)";
         new_name.value="";
     }).catch((error)=>{
-        rename_result.innerHTML="更新斯拜"
+        rename_result.innerHTML="更新斯拜";
     });
 }

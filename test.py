@@ -110,20 +110,26 @@
 # maxZeros([0, 0, 0, 1, 1]) # 得到 3
 
 # print("test")
-def maxProduct(nums):
-    # 請用你的程式補完這個函式的區塊
-    temp = nums[0]*nums[1]
-    # data=nums[1]-nums[0]
-    for i in range(len(nums)):
+# def maxProduct(nums):
+#     # 請用你的程式補完這個函式的區塊
+#     temp = nums[0]*nums[1]
+#     # data=nums[1]-nums[0]
+#     for i in range(len(nums)):
         
-        # print("M[i]:",M[i])
-        for j in range(i+1,len(nums)):
-            # print("j:",j)
-            sum=nums[i]*nums[j]
-            if sum>=temp:
-                temp=sum
-    print("MAX:",max(temp,sum))
+#         # print("M[i]:",M[i])
+#         for j in range(i+1,len(nums)):
+#             # print("j:",j)
+#             sum=nums[i]*nums[j]
+#             if sum>=temp:
+#                 temp=sum
+#     print("MAX:",max(temp,sum))
         
-maxProduct([5, 20, 2, 6]) # 得到 120
-maxProduct([10, -20, 0, 3]) # 得到 30
-maxProduct([-1, 2]) # 得到 -2
+# maxProduct([5, 20, 2, 6]) # 得到 120
+# maxProduct([10, -20, 0, 3]) # 得到 30
+# maxProduct([-1, 2]) # 得到 -2
+def yes(a):
+    if a==1:
+        return "yes"
+    return "no"
+
+print(yes(1))        

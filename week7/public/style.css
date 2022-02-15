@@ -12,7 +12,7 @@ body,ul,li,p
     border: 1px solid black;
     width: 620px;
     margin: 0 auto;
-    margin-top: 300px;
+    margin-top: 200px;
     flex-direction: column;
 }
 .welcome{
