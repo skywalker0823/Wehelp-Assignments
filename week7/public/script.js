@@ -7,12 +7,12 @@ check_name=()=>{
             return response.json();
     }).then((json_data)=>{
         if(json_data.data==null){
-            throw new Error()
+            return you_are.innerHTML="查無此號"
         }
         let name=json_data.data.name;
         you_are.innerHTML=name+"("+who_is+")"
     }).catch((error)=>{
-        you_are.innerHTML="查無此號"
+        you_are.innerHTML="發生錯誤"
     })
 }
 
