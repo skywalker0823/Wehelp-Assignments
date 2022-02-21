@@ -46,9 +46,9 @@ a{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0 auto;
-}
-.box{
-    margin: 5px;
+    row-gap: 5px;
+    column-gap: 5px;
+    max-width: 85%;
 }
 .grid div{
     display: grid;
@@ -69,5 +69,6 @@ a{
     #menu_outer{width:100% ;margin-top: 5px;}
     .menu{justify-content: space-around;}
     .menu a{text-align: center;margin-left: 0px;}
-    .header{justify-items:end;grid-template-columns: 0.5fr 2fr;}
+    .header{justify-items:end;grid-template-columns: 0.3fr 1fr;}
+    #mw{font-size: smaller;justify-self: start;}
 }

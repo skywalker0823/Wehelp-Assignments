@@ -14,7 +14,7 @@ check_name=()=>{
     }).catch((error)=>{
         you_are.innerHTML="發生錯誤"
     })
-}
+};
 
 rename=()=>{
     let new_name=document.getElementById("i_am");
