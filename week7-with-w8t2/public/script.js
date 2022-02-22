@@ -30,9 +30,13 @@ rename=()=>{
     }).then((response)=>{
         return response.json()
     }).then((json_data)=>{
+        console.log(json_data)
+        if("error" in json_data){
+            rename_result.innerHTML=json_data["error"]
+        }else{
         rename_result.innerHTML="更新成功";
         name_message.innerHTML=new_name.value+" 恭喜您~成功登入系統:)";
-        new_name.value="";
+        new_name.value=""};
     }).catch((error)=>{
         rename_result.innerHTML="更新斯拜";
     });

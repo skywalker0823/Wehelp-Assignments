@@ -132,8 +132,8 @@ def change_name():
         else:
             try:
                 if hell_gate == False or data["name"] == "":
-                    print("Cerberus:錯誤JSON格式")
-                    return jsonify({"error":"denied by Cerberus data format."})
+                    print("Cerberus:錯誤的內容")
+                    return jsonify({"error":"denied by Cerberus."})
             except:
                 print("內層except錯誤")
                 return jsonify({"error":"true"})
