@@ -124,25 +124,32 @@ def change_name():
             hell_gate=v.validate(data)
             print("data的樣貌: ", data)
             print("地獄的樣貌: ",hell_gate)
+            if data=={}:
+                return jsonify({"error":"data is empty"})
         except:
             print("except錯誤")
-            return jsonify({"error":"true"})
+            return jsonify({"error":"data is not json"})
         else:
-            if hell_gate == False:
-                print("Cerberus:錯誤JSON格式")
-                return jsonify({"error":"denied by Cerberus data format."})
-            username=session["username"][0]
-            with connection.cursor() as cursor:
-                changed=cursor.execute("""
-                        UPDATE member 
-                        SET name=%s
-                        WHERE username=%s
-                """,(data["name"],username))
-                connection.commit()
-                result={"ok":"true"}
-                session["username"][1]=data["name"]
-                session["username"]=session["username"]
-                return jsonify(result)
+            try:
+                if hell_gate == False or data["name"] == "":
+                    print("Cerberus:錯誤JSON格式")
+                    return jsonify({"error":"denied by Cerberus data format."})
+            except:
+                print("內層except錯誤")
+                return jsonify({"error":"true"})
+            else:
+                username=session["username"][0]
+                with connection.cursor() as cursor:
+                    changed=cursor.execute("""
+                            UPDATE member 
+                            SET name=%s
+                            WHERE username=%s
+                    """,(data["name"],username))
+                    connection.commit()
+                    result={"ok":"true"}
+                    session["username"][1]=data["name"]
+                    session["username"]=session["username"]
+                    return jsonify(result)
     else:
         return jsonify({"error":"true"})
 
