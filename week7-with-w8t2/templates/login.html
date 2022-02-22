@@ -17,15 +17,15 @@
                 <form action="/signup" method="POST" class="signin_bar">
                     <div class="name">
                         <p>姓名</p>
-                        <input name="name" class="log_in" type="text" required>
+                        <input name="name" class="log_in" type="text" pattern="[[a-zA-Z]{4,10}" placeholder="4~25字元之字母" required>
                     </div>
                     <div class="account">
                         <p>帳號</p>
-                        <input name="username" class="log_in" type="text" required>
+                        <input name="username" class="log_in" type="text" pattern="[[a-zA-Z0-9]{4,18}" placeholder="4~18字元之字母或數字" required>
                     </div>
                     <div class=pw>
                         <p>密碼</p>
-                        <input name="password" class="log_in" type="password" required>
+                        <input name="password" class="log_in" type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" placeholder="英文大小寫各一及數字" required>
                     </div>
                     <button class="signin_btn">註冊</button>
                 </form>
@@ -35,10 +35,10 @@
             <p>登入系統</p>
                 <form action="/signin" method="POST" class="signin_bar">
                     <div class="account">
-                        <p>帳號</p><input name="account" class="log_in" type="text">
+                        <p>帳號</p><input name="account" class="log_in" type="text" required>
                     </div>
                     <div class=pw>
-                        <p>密碼</p><input name="password" class="log_in" type="password">
+                        <p>密碼</p><input name="password" class="log_in" type="password" required>
                     </div>
                     <button class="signin_btn">登入</button>
                 </form>

@@ -11,6 +11,7 @@ import pymysql
 from dbutils.pooled_db import PooledDB
 from dotenv import load_dotenv
 from flask import jsonify
+from cerberus import Validator
 
 load_dotenv()
 
@@ -115,20 +116,33 @@ def members():
 
 @app.route("/api/member" , methods=["POST"])
 def change_name():
+    schema={'name':{'type':'string'}}
+    v=Validator(schema)
     if session.get("username"):
-        data=request.get_json()
-        username=session["username"][0]
-        with connection.cursor() as cursor:
-            changed=cursor.execute("""
-                    UPDATE member 
-                    SET name=%s
-                    WHERE username=%s
-            """,(data["name"],username))
-            connection.commit()
-            result={"ok":"true"}
-            session["username"][1]=data["name"]
-            session["username"]=session["username"]
-            return jsonify(result)
+        try: 
+            data=request.get_json()
+            hell_gate=v.validate(data)
+            print("data的樣貌: ", data)
+            print("地獄的樣貌: ",hell_gate)
+        except:
+            print("except錯誤")
+            return jsonify({"error":"true"})
+        else:
+            if hell_gate == False:
+                print("Cerberus:錯誤JSON格式")
+                return jsonify({"error":"denied by Cerberus data format."})
+            username=session["username"][0]
+            with connection.cursor() as cursor:
+                changed=cursor.execute("""
+                        UPDATE member 
+                        SET name=%s
+                        WHERE username=%s
+                """,(data["name"],username))
+                connection.commit()
+                result={"ok":"true"}
+                session["username"][1]=data["name"]
+                session["username"]=session["username"]
+                return jsonify(result)
     else:
         return jsonify({"error":"true"})
 

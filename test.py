@@ -1,6 +1,8 @@
 # # WeHelp Bootcamp
 # # Assignment - Week 2 - 更多解法
 
+from cerberus import Validator
+from flask import jsonify
 # #Task 1
 # #迴圈計算min~max總合
 # def calculate(min,max):
@@ -127,9 +129,17 @@
 # maxProduct([5, 20, 2, 6]) # 得到 120
 # maxProduct([10, -20, 0, 3]) # 得到 30
 # maxProduct([-1, 2]) # 得到 -2
-def yes(a):
-    if a==1:
-        return "yes"
-    return "no"
+# def yes(a):
+#     if a==1:
+#         return "yes"
+#     return "no"
 
-print(yes(1))        
+# print(yes(1))        
+
+schemaa={"name":{'type':'string'}}
+v=Validator(schemaa)
+data=jsonify({"name":"XD"})
+
+checker=v.validate(data)
+
+print(checker)
