@@ -12,6 +12,7 @@ from dbutils.pooled_db import PooledDB
 from dotenv import load_dotenv
 from flask import jsonify
 from cerberus import Validator
+from flask_cors import cross_origin
 
 load_dotenv()
 
@@ -99,6 +100,7 @@ def register():
                 return redirect("/")
 
 @app.route("/api/members" , methods=["GET"])
+@cross_origin()
 def members():
     username=request.args.get("username")
     with connection.cursor() as cursor:

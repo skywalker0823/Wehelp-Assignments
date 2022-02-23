@@ -136,10 +136,15 @@ from flask import jsonify
 
 # print(yes(1))        
 
-schemaa={"name":{'type':'string'}}
-v=Validator(schemaa)
-data=jsonify({"name":"XD"})
+# schemaa={"name":{'type':'string'}}
+# v=Validator(schemaa)
+# data=jsonify({"name":"XD"})
 
-checker=v.validate(data)
+# checker=v.validate(data)
 
-print(checker)
+# print(checker)
+import requests
+url = 'https://www.google.com/'
+headers = {'user-agent': 'my-app/0.0.1'}
+response = requests.get(url, headers=headers)
+print(response.text)

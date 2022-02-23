@@ -1,3 +1,5 @@
+
+
 // function getData(){//這裡在主流程開始的時候 便會立即執行
 //     return new Promise(function(resolve,reject){
 //         let req=new XMLHttpRequest();
@@ -181,8 +183,41 @@
 // const [...y] = [1, 2, 3]
 
 // console.log(y) //[2,3]
-let a="哈哈"
+// let a="哈哈"
 
-function test(){console.log(this)}
+// function test(){console.log(this)}
 
-a.test();
+// a.test();
+
+
+
+
+// async function fetchMovies() {
+//   const response = await fetch('https://www.google.com.tw/?hl=zh_TW');
+//   // waits until the request completes...
+//   console.log(response);
+// }
+
+// fetchMovies();
+
+// async function fetchMoviesJSON() {
+//   const response = await fetch('/movies');
+//   const movies = await response.json();
+//   return movies;
+// }
+// fetchMoviesJSON().then(movies => {
+//   movies; // fetched movies
+// });
+const fetch = require("node-fetch");
+check_name=()=>{
+    fetch(
+        "https://www.google.com.tw/?hl=zh_TW"
+    ).then((response)=>{
+            return response
+    }).then((data)=>{
+            console.log(json_data)
+    }).catch((error)=>{
+            console.log("error")
+    })
+};
+check_name()
