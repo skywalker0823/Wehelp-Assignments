@@ -15,11 +15,14 @@
 // })
 
 async function check(){
-  const response = await fetch('http://127.0.0.1:3000/api/members?username=111', {method: 'get'});
-  const result = await response.json();
-//   localStorage.setItem('jwt', result.access_token);
-    console.log(result)
-}
+  try{
+      const response = await fetch('http://127.0.0.1:3000/api/members?username=111', {method: 'get'});
+      const result = await response.json();
+      console.log({response,result});
+}catch(err){
+      console.log(err);
+  }
+};
 
 // 如果是簡單方法，伺服器必須打開對應方法如get/post的Access-Control-Allow-Origin
 // 切勿設定成＊ 
