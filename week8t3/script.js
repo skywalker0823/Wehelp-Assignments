@@ -32,14 +32,36 @@ async function check(){
 async function check2(){
   const settings={
         method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            xhrFields: {
+        withCredentials: true
+        },
+        },
+        body: JSON.stringify({"name":"123"})
+  }
+  try{
+      const response = await fetch('http://127.0.0.1:3000/api/tester', settings);
+      const result = await response.json();
+      console.log({response,result});
+}catch(err){
+      console.log(err);
+}
+};
+
+async function signin(){
+  const settings={
+        method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"name":"123"})
+        body: JSON.stringify({"account":"123","password":"123"})
     }
   try{
-      const response = await fetch('http://127.0.0.1:3000/api/member', settings);
+      const response = await fetch('http://127.0.0.1:3000/signin', settings);
       const result = await response.json();
       console.log({response,result});
 }catch(err){

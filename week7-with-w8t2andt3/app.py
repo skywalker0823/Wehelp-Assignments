@@ -8,12 +8,14 @@ from flask import request
 from flask import render_template as rt
 from flask import redirect
 from flask import session
+from flask_session import Session
 import pymysql
 from dbutils.pooled_db import PooledDB
 from dotenv import load_dotenv
 from flask import jsonify
 from cerberus import Validator
-from flask_cors import cross_origin
+from flask_cors import cross_origin ,CORS
+import base64
 
 load_dotenv()
 
@@ -35,10 +37,18 @@ POOL = PooledDB(
 connection = POOL.connection()
 # connection=pymysql.connect(charset='utf8',db='website',host='127.0.0.1',password='',port=3306,user='root')
 
+# cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+
 app=Flask(__name__,
 static_folder="public",
 static_url_path="/"
 )
+
+SESSION_TYPE = 'filesystem'
+app.config.from_object(__name__)
+Session(app)
+CORS(app)
 
 app.secret_key=os.getenv("SECRET_KEY")
 
@@ -118,6 +128,15 @@ def members():
             return jsonify(summary)
         else:
             return jsonify({"data":None})
+
+@app.route("/api/tester" , methods=["POST"])
+@cross_origin(supports_credentials=True)
+def yourMethod():
+        user = session.get('username')
+        print(session.sid)
+        print(user)
+        return jsonify(session_info=user)
+
 
 @app.route("/api/member" , methods=["POST"])
 def change_name():
