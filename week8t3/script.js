@@ -16,12 +16,12 @@
 
 async function check(){
   try{
-      const response = await fetch('http://127.0.0.1:3000/api/members?username=111', {method: 'get'});
+      const response = await fetch('http://127.0.0.1:3000/api/members?username=123', {method: 'get'});
       const result = await response.json();
       console.log({response,result});
 }catch(err){
       console.log(err);
-  }
+}
 };
 
 // 如果是簡單方法，伺服器必須打開對應方法如get/post的Access-Control-Allow-Origin
@@ -29,3 +29,20 @@ async function check(){
 //如果是非簡單方法如delete or put 伺服器必須在Option設定，Access-Control-Allow-Methods
 //如果攜帶cookie 前端先聲明credentials: 'include' 或是 withCredentials
 //後端要加上 Access-Control-Allow-Credentials header，而且 Access-Control-Allow-Origin header 不能用 *
+async function check2(){
+  const settings={
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"name":"123"})
+    }
+  try{
+      const response = await fetch('http://127.0.0.1:3000/api/member', settings);
+      const result = await response.json();
+      console.log({response,result});
+}catch(err){
+      console.log(err);
+}
+};

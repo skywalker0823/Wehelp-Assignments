@@ -2,6 +2,7 @@
 from multiprocessing import connection
 import os
 import re
+from urllib import response
 from flask import *
 from flask import request
 from flask import render_template as rt
@@ -102,6 +103,8 @@ def register():
 @app.route("/api/members" , methods=["GET"])
 @cross_origin()
 def members():
+    # header = response.headers
+    # header['Access-Control-Allow-Origin']="*"
     username=request.args.get("username")
     with connection.cursor() as cursor:
         got=cursor.execute("""SELECT * FROM member WHERE username=%s""",(username,))
@@ -121,11 +124,10 @@ def change_name():
     schema={'name':{'type':'string'}}
     v=Validator(schema)
     if session.get("username"):
+        print(session["username"])
         try: 
             data=request.get_json()
             hell_gate=v.validate(data)
-            print("data的樣貌: ", data)
-            print("地獄的樣貌: ",hell_gate)
             if data=={}:
                 return jsonify({"error":"data is empty"})
         except:

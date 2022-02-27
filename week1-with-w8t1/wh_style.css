@@ -50,6 +50,7 @@ a{
     column-gap: 5px;
     max-width: 85%;
 }
+/* grid auto flow */
 .grid div{
     display: grid;
 }

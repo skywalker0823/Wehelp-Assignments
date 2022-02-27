@@ -211,7 +211,7 @@
 const fetch = require("node-fetch");
 check_name=()=>{
     fetch(
-        "https://www.google.com.tw/?hl=zh_TW"
+        "http://127.0.0.1:3000/api/members?username=123"
     ).then((response)=>{
             return response
     }).then((data)=>{
